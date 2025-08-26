@@ -87,7 +87,7 @@ export const projects = [
     id: 6,
     title: "Shoping List",
     description: "Cryptocurrency tracking dashboard with real-time prices, portfolio management, and market analysis tools.",
-    image: "public/assets/Projectimages/Screenshot 2025-08-26 125032.png",
+    image: "/assets/Projectimages/Screenshot 2025-08-26 125032.png",
     technologies: ["HTML", "CSS", "Javascript"],
     liveUrl: "https://jerry3048.github.io/shoping-list/",
     githubUrl: "https://github.com/Jerry3048/shoping-list"

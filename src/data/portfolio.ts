@@ -18,7 +18,7 @@ export const skills = {
     { name: "JavaScript", icon: "/assets/skilllogo/Group.svg", level: 92 },
     { name: "TypeScript", icon: "/assets/skilllogo/Group.png", level: 88 },
     { name: "React", icon: "/assets/skilllogo/Group 14.svg", level: 95 },
-      { name: "Bootstrap", icon: "/assets/skilllogo/bootstrap.svg", level: 80 },
+    { name: "Bootstrap", icon: "/assets/skilllogo/bootstrap.svg", level: 80 },
     { name: "Tailwind CSS", icon: "/assets/skilllogo/Tailwind_CSS_Logo.svg.png", level: 90 },
     { name: "Git", icon: "/assets/skilllogo/git.svg", level: 70 },
   ],

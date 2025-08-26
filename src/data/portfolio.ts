@@ -8,7 +8,7 @@ export const personalInfo = {
   bio: "Passionate frontend developer with hands-on experience building 10+ real-world projects. I specialize in React, TypeScript, and modern CSS frameworks, creating beautiful and user-friendly web applications. Always eager to learn new technologies and solve complex problems.",
   resumeUrl: "/resume.pdf",
   profileImage: "/assets/Heroimages/photo_2025-08-25_06-50-01.jpg",
-  avatar: "/assets/Heroimages/photo_2025-08-25_06-53-00.jpg"
+  avatar: "/assets/Heroimages/at-high-resolution-logo.png"
 };
 
 export const skills = {
@@ -85,12 +85,12 @@ export const projects = [
   },
   {
     id: 6,
-    title: "Crypto Tracker",
+    title: "Shoping List",
     description: "Cryptocurrency tracking dashboard with real-time prices, portfolio management, and market analysis tools.",
-    image: "https://images.pexels.com/photos/844127/pexels-photo-844127.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=2",
-    technologies: ["React", "CoinGecko API", "Chart.js", "Local Storage"],
-    liveUrl: "https://example-crypto-tracker.com",
-    githubUrl: "https://github.com/alexjohnson/crypto-tracker"
+    image: "public/assets/Projectimages/Screenshot 2025-08-26 125032.png",
+    technologies: ["HTML", "CSS", "Javascript"],
+    liveUrl: "https://jerry3048.github.io/shoping-list/",
+    githubUrl: "https://github.com/Jerry3048/shoping-list"
   }
 ];
 

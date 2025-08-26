@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion,Variants } from 'framer-motion';
 import { toast, Toaster } from 'react-hot-toast';
 import {EnvelopeIcon,PhoneIcon,MapPinIcon,PaperAirplaneIcon} from '@heroicons/react/24/outline';
 import { personalInfo} from '../data/portfolio';
 import { Github, Linkedin, Twitter, Mail } from "lucide-react"; // modern icons
+import { useForm, ValidationError } from "@formspree/react";
 
 interface FormData {
   name: string;
@@ -29,14 +30,15 @@ const itemVariants:Variants = {
 };
 
 
-const Contact: React.FC = () => {
+function Contact () {
+  const [state, handleSubmit] = useForm("mkgvnzgl");
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
 
   // Handle input changes
   function handleChange(
@@ -45,42 +47,28 @@ const Contact: React.FC = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
+  useEffect(()=>{
 
-  // Simulate form submission
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      toast.success("Message sent successfully! I'll get back to you soon.", {
-        duration: 4000,
-        position: 'top-center',
-        style: {
-          background: '#149c6c',
-          color: 'white',
-          borderRadius: '12px',
-          padding: '16px',
-        },
-      });
-
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch {
-      toast.error('Something went wrong. Please try again.', {
-        duration: 4000,
-        position: 'top-center',
-        style: {
-          background: '#ef4444',
-          color: 'white',
-          borderRadius: '12px',
-          padding: '16px',
-        },
-      });
-    } finally {
-      setIsSubmitting(false);
+    if (state.succeeded) {
+      setFormData({name: '',
+      email: '',
+      phone: '',
+      message: ''})
+      setTimeout(() => {
+        toast.success("Message sent successfully! I'll get back to you soon.", {
+          duration: 4000,
+          position: 'top-center',
+          style: {
+            background: '#149c6c',
+            color: 'white',
+            borderRadius: '12px',
+            padding: '16px',
+          },
+        });
+      }, 100);
+     
     }
-  }
+  },[state.succeeded])
 
    const socials = [
     {
@@ -244,6 +232,12 @@ const Contact: React.FC = () => {
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary dark:focus:border-secondary focus:ring-2 focus:ring-primary/20 dark:focus:ring-secondary/20 transition-all duration-300 outline-none"
                       placeholder="Your full name"
                     />
+                  <ValidationError
+                  prefix='Name'
+                  field='name'
+                  
+                  errors={state.errors}
+                  />
                   </div>
 
                   {/* Email */}
@@ -262,6 +256,12 @@ const Contact: React.FC = () => {
                       placeholder="your.email@example.com"
                     />
                   </div>
+                    <ValidationError
+                  prefix='Email'
+                  field='email'
+                  errors={state.errors}
+                  />
+
                 </div>
 
                 {/* Phone */}
@@ -278,6 +278,12 @@ const Contact: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary dark:focus:border-secondary focus:ring-2 focus:ring-primary/20 dark:focus:ring-secondary/20 transition-all duration-300 outline-none"
                     placeholder="+1 (555) 123-4567"
                   />
+                    <ValidationError
+                  prefix='Phone'
+                  field='phone'
+                  errors={state.errors}
+                  />
+
                 </div>
 
                 {/* Message */}
@@ -295,6 +301,12 @@ const Contact: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-primary dark:focus:border-secondary focus:ring-2 focus:ring-primary/20 dark:focus:ring-secondary/20 transition-all duration-300 outline-none resize-none"
                     placeholder="Tell me about your project..."
                   />
+                    <ValidationError
+                  prefix='Message'
+                  field='message'
+                  errors={state.errors}
+                  />
+
                 </div>
 
                 {/* Submit Button */}
@@ -302,10 +314,10 @@ const Contact: React.FC = () => {
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={state.submitting}
                   className="w-full px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                 >
-                  {isSubmitting ? (
+                  {state.submitting ? (
                     <>
                       <motion.div
                         animate={{ rotate: 360 }}
@@ -324,6 +336,7 @@ const Contact: React.FC = () => {
               </form>
             </motion.div>
           </div>
+          {state.succeeded && <p className='text-white'>Thank you i will get back to you !</p>}
         </motion.div>
       </div>
     </section>

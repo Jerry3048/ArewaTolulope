@@ -82,17 +82,16 @@ const Contact: React.FC = () => {
     }
   }
 
-  // Return emoji icon for social links
    const socials = [
     {
       name: "GitHub",
       icon: <Github className="w-6 h-6" />,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/Jerry3048",
     },
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-6 h-6" />,
-      url: "https://linkedin.com/in/yourusername",
+      url: "www.linkedin.com/in/arewa-tolulope-1496a7238",
     },
     {
       name: "Twitter",
@@ -102,11 +101,11 @@ const Contact: React.FC = () => {
     {
       name: "Email",
       icon: <Mail className="w-6 h-6" />,
-      url: "mailto:youremail@example.com",
+      url: "mailto:arewatolulope5@gmail.com",
     },
   ];
 
-
+  
   return (
     <section
       id="contact"

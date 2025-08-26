@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HeartIcon } from '@heroicons/react/24/solid';
-import { personalInfo, navigationLinks, socialLinks } from '../data/portfolio';
+import { personalInfo, navigationLinks} from '../data/portfolio';
+import { Github, Linkedin, Twitter, Mail } from "lucide-react"; 
 
 const Footer: React.FC = () => {
   const scrollToSection = (href: string) => {
@@ -9,15 +10,28 @@ const Footer: React.FC = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const getSocialIcon = (iconName: string) => {
-    const icons: { [key: string]: string } = {
-      github: '🐙',
-      linkedin: '💼',
-      twitter: '🐦',
-      facebook: '📘'
-    };
-    return icons[iconName] || '🔗';
-  };
+   const socials = [
+    {
+      name: "GitHub",
+      icon: <Github className="w-6 h-6" />,
+      url: "https://github.com/Jerry3048",
+    },
+    {
+      name: "LinkedIn",
+      icon: <Linkedin className="w-6 h-6" />,
+      url: "www.linkedin.com/in/arewa-tolulope-1496a7238",
+    },
+    {
+      name: "Twitter",
+      icon: <Twitter className="w-6 h-6" />,
+      url: "https://twitter.com/yourusername",
+    },
+    {
+      name: "Email",
+      icon: <Mail className="w-6 h-6" />,
+      url: "mailto:arewatolulope5@gmail.com",
+    },
+  ];
 
   const currentYear = new Date().getFullYear();
 
@@ -88,19 +102,19 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-3 pt-2">
-              {socialLinks.map((social) => (
+          <div className="flex gap-4 justify-center md:justify-start mt-6">
+              {socials.map((social) => (
                 <motion.a
                   key={social.name}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-800 hover:bg-gray-700 rounded-full text-gray-400 hover:text-secondary transition-all duration-300"
-                  title={social.name}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-900 hover:text-white transition-all hover:dark-bg-green-100"
+                  aria-label={social.name}
                 >
-                  <span className="text-lg">{getSocialIcon(social.icon)}</span>
+                  {social.icon}
                 </motion.a>
               ))}
             </div>

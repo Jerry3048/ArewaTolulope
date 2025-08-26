@@ -94,12 +94,12 @@ export const projects = [
   }
 ];
 
-export const socialLinks = [
-  { name: "GitHub", url: "https://github.com/alexjohnson", icon: "github" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/alexjohnson", icon: "linkedin" },
-  { name: "Twitter", url: "https://twitter.com/alexjohnson", icon: "twitter" },
-  { name: "Facebook", url: "https://facebook.com/alexjohnson", icon: "facebook" }
-];
+// export const socialLinks = [
+//   { name: "GitHub", url: "https://github.com/alexjohnson", icon: "github" },
+//   { name: "LinkedIn", url: "https://linkedin.com/in/alexjohnson", icon: "linkedin" },
+//   { name: "Twitter", url: "https://twitter.com/alexjohnson", icon: "twitter" },
+//   { name: "Facebook", url: "https://facebook.com/alexjohnson", icon: "facebook" }
+// ];
 
 export const navigationLinks = [
   { name: "Home", href: "#home" },

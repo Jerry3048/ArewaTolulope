@@ -7,33 +7,33 @@ export const personalInfo = {
   location: "Obafemi Awolowo University, Ile-Ife,Osun State, Nigeria",
   bio: "Passionate frontend developer with hands-on experience building 10+ real-world projects. I specialize in React, TypeScript, and modern CSS frameworks, creating beautiful and user-friendly web applications. Always eager to learn new technologies and solve complex problems.",
   resumeUrl: "/resume.pdf",
-  profileImage: "src/assets/Heroimages/photo_2025-08-25_06-50-01.jpg",
-  avatar: "src/assets/Heroimages/photo_2025-08-25_06-53-00.jpg"
+  profileImage: "/assets/Heroimages/photo_2025-08-25_06-50-01.jpg",
+  avatar: "/assets/Heroimages/photo_2025-08-25_06-53-00.jpg"
 };
 
 export const skills = {
   Known: [
-    { name: "HTML5", icon: "src/assets/skilllogo/Group 12.svg", level: 95 },
-    { name: "CSS3", icon: "src/assets/skilllogo/Group 13.svg", level: 90 },
-    { name: "JavaScript", icon: "src/assets/skilllogo/Group.svg", level: 92 },
-    { name: "TypeScript", icon: "src/assets/skilllogo/Group.png", level: 88 },
-    { name: "React", icon: "src/assets/skilllogo/Group 14.svg", level: 95 },
-      { name: "Bootstrap", icon: "src/assets/skilllogo/bootstrap.svg", level: 80 },
-    { name: "Tailwind CSS", icon: "src/assets/skilllogo/Tailwind_CSS_Logo.svg.png", level: 90 },
-    { name: "Git", icon: "src/assets/skilllogo/git.svg", level: 70 },
+    { name: "HTML5", icon: "/assets/skilllogo/Group 12.svg", level: 95 },
+    { name: "CSS3", icon: "/assets/skilllogo/Group 13.svg", level: 90 },
+    { name: "JavaScript", icon: "/assets/skilllogo/Group.svg", level: 92 },
+    { name: "TypeScript", icon: "/assets/skilllogo/Group.png", level: 88 },
+    { name: "React", icon: "/assets/skilllogo/Group 14.svg", level: 95 },
+      { name: "Bootstrap", icon: "/assets/skilllogo/bootstrap.svg", level: 80 },
+    { name: "Tailwind CSS", icon: "/assets/skilllogo/Tailwind_CSS_Logo.svg.png", level: 90 },
+    { name: "Git", icon: "/assets/skilllogo/git.svg", level: 70 },
   ],
 
   learning: [
-    { name: "Node.js", icon: "src/assets/skilllogo/Group (1).png", level: 20 },
-    { name: "Next.js", icon: "src/assets/skilllogo/nextjs-icon.png", level: 20 },
-    { name: "Firebase", icon: "src/assets/skilllogo/firebaselogo-logomark.png", level: 60 },
-    { name: "MySQL", icon: "src/assets/skilllogo/Vector.svg", level: 60 },
+    { name: "Node.js", icon: "/assets/skilllogo/Group (1).png", level: 20 },
+    { name: "Next.js", icon: "/assets/skilllogo/nextjs-icon.png", level: 20 },
+    { name: "Firebase", icon: "/assets/skilllogo/firebaselogo-logomark.png", level: 60 },
+    { name: "MySQL", icon: "/assets/skilllogo/Vector.svg", level: 60 },
   ],
 
   other: [
-    { name: "Figma", icon: "src/assets/skilllogo/figma.svg", level: 50 },
-    { name: "C++", icon: "src/assets/skilllogo/image 20.svg", level: 80 },
-      { name: "CyberSecurity", icon: "src/assets/skilllogo/cyberSecurity.jpg", level: 50 },
+    { name: "Figma", icon: "/assets/skilllogo/figma.svg", level: 50 },
+    { name: "C++", icon: "/assets/skilllogo/image 20.svg", level: 80 },
+      { name: "CyberSecurity", icon: "/assets/skilllogo/cyberSecurity.jpg", level: 50 },
   ],
 };
 
@@ -42,7 +42,7 @@ export const projects = [
     id: 1,
     title: "E-Commerce Website",
     description: "A comprehensive admin dashboard for managing online stores with real-time analytics, inventory management, and order processing.",
-    image: "src/assets/Projectimages/Screenshot 2025-08-25 224618.png",
+    image: "/assets/Projectimages/Screenshot 2025-08-25 224618.png",
     technologies: ["React", "JavaScript", "Tailwind CSS", "firebase","Zustand"],
     liveUrl: "https://ecommerce-plum-gamma.vercel.app/",
     githubUrl: "https://github.com/Jerry3048/Ecommerce"
@@ -51,7 +51,7 @@ export const projects = [
     id: 2,
     title: "World Navigator",
     description: "Beautiful weather application with location-based forecasts, interactive maps, and detailed weather metrics.",
-    image: "src/assets/Projectimages/Screenshot 2025-08-25 223001.png",
+    image: "/assets/Projectimages/Screenshot 2025-08-25 223001.png",
     technologies: ["React", "OpenWeather API", "Tailwind CSS","JavaScript","flowbite"],
     liveUrl: "https://worldnavigator.vercel.app/",
     githubUrl: "https://github.com/Jerry3048/worldnavigator"
@@ -60,7 +60,7 @@ export const projects = [
     id: 3,
     title: "Nurtitionist Planning Website",
     description: "Collaborative task management application with team features, real-time updates, and project tracking capabilities.",
-    image: "src/assets/Projectimages/Screenshot 2025-08-25 224522.png",
+    image: "/assets/Projectimages/Screenshot 2025-08-25 224522.png",
     technologies: ["React", "TypeScript", "TailwindCSS"],
     liveUrl: "https://nutritionist-puce.vercel.app/",
     githubUrl: "https://github.com/Jerry3048/Nutritionist"
@@ -69,7 +69,7 @@ export const projects = [
     id: 4,
     title: "loopstudio landing page",
     description: "Modern, responsive portfolio website built with React and Framer Motion, featuring dark mode and smooth animations.",
-    image: "src/assets/Projectimages/Screenshot 2025-08-25 225331.png",
+    image: "/assets/Projectimages/Screenshot 2025-08-25 225331.png",
     technologies: ["HTML", "Tailwind CSS", "Javascript"],
     liveUrl: "https://jerry3048.github.io/loopstudios-landing-page/",
     githubUrl: "https://github.com/alexjohnson/portfolio"
@@ -78,7 +78,7 @@ export const projects = [
     id: 5,
     title: "Space Tourism Website",
     description: "Full-stack social media application with real-time messaging, post sharing, and user authentication.",
-    image: "src/assets/Projectimages/Screenshot 2025-08-25 224711.png",
+    image: "/assets/Projectimages/Screenshot 2025-08-25 224711.png",
     technologies: ["React", "JavaScript", "Tailwind Css"],
     liveUrl: "https://example-social-app.com",
     githubUrl: "https://github.com/Jerry3048/loopstudios-landing-page"

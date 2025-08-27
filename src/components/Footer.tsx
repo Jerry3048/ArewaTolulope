@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-6 h-6" />,
-      url: "www.linkedin.com/in/arewa-tolulope-1496a7238",
+      url: "https://www.linkedin.com/in/arewa-tolulope-1496a7238/",
     },
     {
       name: "Twitter",

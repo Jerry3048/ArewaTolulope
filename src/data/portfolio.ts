@@ -7,7 +7,7 @@ export const personalInfo = {
   location: "Obafemi Awolowo University, Ile-Ife,Osun State, Nigeria",
   bio: "Passionate frontend developer with hands-on experience building 10+ real-world projects. I specialize in React, TypeScript, and modern CSS frameworks, creating beautiful and user-friendly web applications. Always eager to learn new technologies and solve complex problems.",
   resumeUrl: "/resume.pdf",
-  profileImage: "/assets/Heroimages/photo_2025-08-25_06-50-01.jpg",
+  profileImage: "assets/Heroimages/image.png",
   avatar: "/assets/Heroimages/at-high-resolution-logo.png"
 };
 

@@ -48,12 +48,12 @@ function About () {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Profile Image */}
             <motion.div className="flex justify-center lg:justify-start">
-              <div className="relative">
+              <div className="relative ">
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   src={personalInfo.profileImage}
                   alt={personalInfo.name}
-                  className="w-80 h-80 object-cover rounded-2xl shadow-2xl"
+                  className="w-80 h-80 object-cover rounded-2xl shadow-2xl bg-black/30"
                 />
               </div>
             </motion.div>

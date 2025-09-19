@@ -89,14 +89,15 @@ export const projects = [
     githubUrl: "https://github.com/Jerry3048/Space-tourism",
   },
   {
-    id: 6,
-    title: "Shopping List",
-    description:
-      "A simple yet practical shopping list web app where users can add, edit, and remove items. Built with vanilla JavaScript, HTML, and CSS to demonstrate clean DOM manipulation and lightweight interactivity.",
-    image: "/assets/Projectimages/Screenshot 2025-08-26 125032.png",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "https://jerry3048.github.io/shoping-list/",
-    githubUrl: "https://github.com/Jerry3048/shoping-list",
+     id: 6,
+  title: "StreamVibes",
+  description:
+    "A modern movie streaming web app UI where users can explore categories, featured content, and trending movies. Built with React and Tailwind CSS, it includes smooth UI interactions, reusable components, and responsive design optimized for all devices. It also integrates AI-powered movie recommendations for a smarter experience.",
+  image: "/assets/Projectimages/Screenshot 2025-09-18 020659.png",
+  technologies: ["React", "Tailwind CSS", "JavaScript", "AI"],
+  liveUrl: "https://stream-vibes-green.vercel.app/",
+  githubUrl: "https://github.com/Jerry3048/StreamVibes",
+
   },
 ];
 

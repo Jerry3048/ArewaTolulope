@@ -77,10 +77,10 @@ function Contact () {
       url: "https://github.com/Jerry3048",
     },
     {
-      name: "LinkedIn",
-      icon: <Linkedin className="w-6 h-6" />,
-      url: "www.linkedin.com/in/arewa-tolulope-1496a7238",
-    },
+        name: "LinkedIn",
+        icon: <Linkedin className="w-6 h-6" />,
+        url: "https://www.linkedin.com/in/arewa-tolulope-1496a7238/",
+      },
     {
       name: "Twitter",
       icon: <Twitter className="w-6 h-6" />,

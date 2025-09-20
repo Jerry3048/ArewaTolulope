@@ -82,7 +82,7 @@ function Contact () {
         url: "https://www.linkedin.com/in/arewa-tolulope-1496a7238/",
       },
     {
-      name: "Twitter",
+      name: "Twitter", 
       icon: <Twitter className="w-6 h-6" />,
       url: "https://twitter.com/yourusername",
     },

@@ -94,7 +94,7 @@ export const projects = [
   description:
     "A modern movie streaming web app UI where users can explore categories, featured content, and trending movies. Built with React and Tailwind CSS, it includes smooth UI interactions, reusable components, and responsive design optimized for all devices. It also integrates AI-powered movie recommendations for a smarter experience.",
   image: "/assets/Projectimages/Screenshot 2025-09-18 020659.png",
-  technologies: ["React", "Tailwind CSS", "JavaScript", "AI"],
+  technologies: ["React", "Tailwind CSS", "JavaScript","AI Database", "Movie Database"],
   liveUrl: "https://stream-vibes-green.vercel.app/",
   githubUrl: "https://github.com/Jerry3048/StreamVibes",
 

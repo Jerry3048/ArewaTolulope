@@ -26,7 +26,7 @@ const cardVariants: Variants = {
 };
 
 // 🔹 Reusable Skill Card Component
-const SkillCard = ({ skill, index }: { skill: skill; index: number }) => (
+const SkillCard = ({ skill}: { skill: skill; index: number }) => (
   <motion.div
     variants={cardVariants}
     whileHover={{
@@ -57,25 +57,6 @@ const SkillCard = ({ skill, index }: { skill: skill; index: number }) => (
         {skill.name}
       </h3>
 
-      {/* Progress Bar */}
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-2">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${skill.level}%` }}
-          transition={{ delay: index * 0.1, duration: 1, ease: "easeOut" }}
-          className="bg-gradient-to-r from-primary to-secondary h-2 rounded-full"
-        />
-      </div>
-
-      {/* Level */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: index * 0.1 + 0.5, duration: 0.5 }}
-        className="text-sm font-medium text-gray-600 dark:text-gray-400"
-      >
-        {skill.level}%
-      </motion.span>
     </div>
   </motion.div>
 );

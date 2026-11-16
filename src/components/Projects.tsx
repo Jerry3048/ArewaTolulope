@@ -1,186 +1,107 @@
-import React from "react";
-import { motion, Variants } from "framer-motion";
-import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
-import { projects } from "../data/portfolio";
+import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
+import { projects } from '../data/portfolio';
+import SectionHeading from './SectionHeading';
 
-// ✅ Variants for animation
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-};
-
-const itemVariants: Variants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const cardVariants: Variants = {
-  hidden: { scale: 0.9, opacity: 0 },
-  visible: { scale: 1, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-// ✅ Reusable Project Card
 interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   technologies: string[];
-  liveUrl: string;
-  githubUrl: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  featured?: boolean;
 }
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
-  <motion.div
-    variants={cardVariants}
-    whileHover={{ y: -10, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-    className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl 
-               transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
-  >
-    {/* Project Image with Overlay */}
-    <div className="relative overflow-hidden">
-      <motion.img
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-        src={project.image}
-        alt={project.title}
-        className="w-full h-48 object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent 
-                      opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex 
-                      items-end justify-between p-4">
-        <div className="flex gap-2">
-          {/* Live Demo Link */}
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30"
-          >
-            <ArrowTopRightOnSquareIcon className="h-5 w-5" />
-          </motion.a>
-          {/* GitHub Link */}
-          <motion.a
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30"
-          >
-            <CodeBracketIcon className="h-5 w-5" />
-          </motion.a>
+const focus =
+  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <article className="flex flex-col bg-white dark:bg-dark-card rounded-lg overflow-hidden border border-gray-200 dark:border-dark-border hover:border-primary/60 dark:hover:border-primary-light/40 transition-colors">
+      {project.image ? (
+        <img
+          src={project.image}
+          alt={`${project.title} screenshot`}
+          className="w-full h-48 object-cover border-b border-gray-200 dark:border-dark-border"
+        />
+      ) : (
+        <div
+          aria-hidden="true"
+          className="w-full h-48 flex items-center justify-center bg-gray-100 dark:bg-dark-surface border-b border-gray-200 dark:border-dark-border text-2xl font-semibold text-primary dark:text-primary-light"
+        >
+          {project.title.split(/[\s:]/)[0]}
+        </div>
+      )}
+
+      <div className="flex flex-col flex-1 p-5">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          {project.title}
+          {project.featured && (
+            <span className="ml-2 align-middle text-xs font-medium text-primary dark:text-primary-light bg-primary/10 px-2 py-0.5 rounded">
+              Featured
+            </span>
+          )}
+        </h3>
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{project.description}</p>
+
+        <ul className="mt-4 flex flex-wrap gap-1.5">
+          {project.technologies.map((tech) => (
+            <li
+              key={tech}
+              className="px-2.5 py-1 text-xs font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-dark-surface rounded"
+            >
+              {tech}
+            </li>
+          ))}
+        </ul>
+
+        {(project.liveUrl || project.githubUrl) && (
+          <div className="mt-auto pt-5 flex gap-2">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-lg transition-colors ${focus}`}
+              >
+                <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                Live demo
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center gap-1.5 px-4 py-2.5 border border-gray-300 dark:border-dark-border text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-surface text-sm font-medium rounded-lg transition-colors ${focus}`}
+              >
+                <CodeBracketIcon className="h-4 w-4" />
+                Source
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="projects" className="py-20 bg-gray-50 dark:bg-dark-surface">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeading title="Projects" description="Selected work, from real products to personal builds." />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {(projects as Project[]).map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-
-    {/* Project Content */}
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 
-                     group-hover:text-primary dark:group-hover:text-secondary transition-colors duration-300">
-        {project.title}
-      </h3>
-      <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-        {project.description}
-      </p>
-
-      {/* Technologies */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {project.technologies.map((tech) => (
-          <span
-            key={tech}
-            className="px-3 py-1 text-xs font-medium bg-primary/10 dark:bg-secondary/10 
-                       text-primary dark:text-secondary rounded-full border 
-                       border-primary/20 dark:border-secondary/20"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-
-      {/* Action Buttons */}
-      <div className="flex gap-3">
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 px-4 py-2 bg-gradient-to-r from-primary to-primary/80 
-                     text-white text-center rounded-xl font-medium flex items-center 
-                     justify-center gap-2 hover:from-primary/90 hover:to-primary transition-all duration-300"
-        >
-          <ArrowTopRightOnSquareIcon className="h-4 w-4" />
-          Live Demo
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 
-                     dark:text-gray-300 rounded-xl font-medium flex items-center justify-center gap-2 
-                     hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-secondary"
-        >
-          <CodeBracketIcon className="h-4 w-4" />
-          Code
-        </motion.a>
-      </div>
-    </div>
-  </motion.div>
-);
-
-// ✅ Main Component
-const Projects: React.FC = () => (
-  <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="max-w-7xl mx-auto"
-      >
-        {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured <span className="text-primary dark:text-secondary">Projects</span>
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
-            A showcase of my recent work and creative solutions
-          </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mt-6"></div>
-        </motion.div>
-
-        {/* Projects Grid */}
-        <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div variants={itemVariants} className="text-center mt-16">
-          <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
-            Have a project in mind? Let’s work together!
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-4 bg-gradient-to-r from-secondary to-secondary/80 
-                       hover:from-secondary/90 hover:to-secondary text-gray-900 
-                       font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Start a Project
-          </motion.button>
-        </motion.div>
-      </motion.div>
-    </div>
-  </section>
-);
+    </section>
+  );
+}
 
 export default Projects;

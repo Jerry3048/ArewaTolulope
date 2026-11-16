@@ -1,149 +1,70 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { HeartIcon } from '@heroicons/react/24/solid';
-import { personalInfo, navigationLinks} from '../data/portfolio';
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"; 
+import { Github, Linkedin, Mail } from 'lucide-react';
+import { GITHUB_URL, LINKEDIN_URL } from '../data/socials';
+import { personalInfo, navigationLinks } from '../data/portfolio';
 
-const Footer: React.FC = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+function Footer() {
+  const goTo = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
 
-   const socials = [
-    {
-      name: "GitHub",
-      icon: <Github className="w-6 h-6" />,
-      url: "https://github.com/Jerry3048",
-    },
-    {
-      name: "LinkedIn",
-      icon: <Linkedin className="w-6 h-6" />,
-      url: "https://www.linkedin.com/in/arewa-tolulope-1496a7238/",
-    },
-    {
-      name: "Twitter",
-      icon: <Twitter className="w-6 h-6" />,
-      url: "https://twitter.com/yourusername",
-    },
-    {
-      name: "Email",
-      icon: <Mail className="w-6 h-6" />,
-      url: "mailto:arewatolulope5@gmail.com",
-    },
+  const socials = [
+    { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: GITHUB_URL },
+    { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, url: LINKEDIN_URL },
+    { name: 'Email', icon: <Mail className="w-5 h-5" />, url: `mailto:${personalInfo.email}` },
   ];
 
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand Section */}
-          <div className="space-y-4">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-3xl font-bold text-secondary"
-            >
-              {personalInfo.name.split(' ').map(name => name[0]).join('')}
-            </motion.div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              {personalInfo.title} passionate about creating beautiful, functional web experiences.
-              Always learning, always building.
+    <footer className="bg-primary-dark text-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
+          <div>
+            <p className="text-xl font-semibold">{personalInfo.name}</p>
+            <p className="mt-3 max-w-xs text-sm text-blue-100/80 leading-relaxed">
+              Frontend developer and UI designer based in Ile-Ife, Nigeria.
             </p>
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <span>Made with</span>
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <HeartIcon className="h-4 w-4 text-red-500" />
-              </motion.div>
-              <span>by {personalInfo.name}</span>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
-            <nav className="flex flex-col space-y-2">
-              {navigationLinks.map((link) => (
-                <motion.button
-                  key={link.name}
-                  whileHover={{ x: 5 }}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-gray-400 hover:text-secondary text-sm text-left transition-colors duration-300"
-                >
-                  {link.name}
-                </motion.button>
-              ))}
-            </nav>
-          </div>
-
-          {/* Contact & Social */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Connect</h3>
-            <div className="space-y-2">
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="block text-gray-400 hover:text-secondary text-sm transition-colors duration-300"
-              >
-                {personalInfo.email}
-              </a>
-              <a
-                href={`tel:${personalInfo.phone}`}
-                className="block text-gray-400 hover:text-secondary text-sm transition-colors duration-300"
-              >
-                {personalInfo.phone}
-              </a>
-              <p className="text-gray-400 text-sm">
-                {personalInfo.location}
-              </p>
-            </div>
-
-            {/* Social Links */}
-          <div className="flex gap-4 justify-center md:justify-start mt-6">
-              {socials.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
+            <div className="mt-5 flex gap-2">
+              {socials.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-900 hover:text-white transition-all hover:dark-bg-green-100"
-                  aria-label={social.name}
+                  aria-label={s.name}
+                  className="p-2.5 rounded-lg text-blue-100/80 hover:text-white hover:bg-white/10 transition-colors"
                 >
-                  {social.icon}
-                </motion.a>
+                  {s.icon}
+                </a>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} {personalInfo.name}. All rights reserved.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 text-gray-400 text-sm">
-              <motion.button
-                whileHover={{ color: '#CBEA7B' }}
-                onClick={() => scrollToSection('#home')}
-                className="hover:text-secondary transition-colors duration-300"
-              >
-                Back to top ↑
-              </motion.button>
-            </div>
+          <nav aria-label="Footer">
+            <h3 className="text-sm font-semibold mb-4">Navigation</h3>
+            <ul className="space-y-2.5">
+              {navigationLinks.map((link) => (
+                <li key={link.name}>
+                  <button onClick={() => goTo(link.href)} className="text-sm text-blue-100/80 hover:text-white transition-colors">
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <h3 className="text-sm font-semibold mb-4">Contact</h3>
+            <ul className="space-y-2.5 text-sm text-blue-100/80">
+              <li><a href={`mailto:${personalInfo.email}`} className="hover:text-white transition-colors break-all">{personalInfo.email}</a></li>
+              <li><a href={`tel:${personalInfo.phone}`} className="hover:text-white transition-colors">{personalInfo.phone}</a></li>
+              <li>{personalInfo.location}</li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      {/* Background Pattern */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+        <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/15 text-sm text-blue-100/70">
+          © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+        </div>
+      </div>
     </footer>
   );
-};
+}
 
 export default Footer;

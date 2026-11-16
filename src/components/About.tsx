@@ -1,8 +1,14 @@
-import { motion } from 'framer-motion';
 import { DocumentArrowDownIcon, MapPinIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import { personalInfo } from '../data/portfolio';
+import SectionHeading from './SectionHeading';
 
-function About () {
+const stats = [
+  { value: '2+', label: 'Years of experience' },
+  { value: '10+', label: 'Projects built' },
+  { value: '2', label: 'Products contributed to' },
+];
+
+function About() {
   const handleDownloadResume = () => {
     const link = document.createElement('a');
     link.href = personalInfo.resumeUrl;
@@ -12,129 +18,70 @@ function About () {
     document.body.removeChild(link);
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
- 
+  const contact = [
+    { icon: <MapPinIcon className="h-5 w-5" />, text: personalInfo.location },
+    { icon: <EnvelopeIcon className="h-5 w-5" />, text: personalInfo.email, href: `mailto:${personalInfo.email}` },
+    { icon: <PhoneIcon className="h-5 w-5" />, text: personalInfo.phone, href: `tel:${personalInfo.phone}` },
+  ];
 
   return (
-    <section
-      id="about"
-      className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
-    >
+    <section id="about" className="py-20 bg-gray-50 dark:bg-dark-surface">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-6xl mx-auto"
-        >
-          {/* Section Header */}
-          <motion.div  className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              About <span className="text-primary dark:text-secondary">Me</span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-          </motion.div>
+        <div className="max-w-6xl mx-auto">
+          <SectionHeading title="About me" />
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Profile Image */}
-            <motion.div className="flex justify-center lg:justify-start">
-              <div className="relative ">
-                <motion.img
-                  whileHover={{ scale: 1.05 }}
-                  src={personalInfo.profileImage}
-                  alt={personalInfo.name}
-                  className="w-80 h-80 object-cover rounded-2xl shadow-2xl bg-black/30"
-                />
-              </div>
-            </motion.div>
+          <div className="grid lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start">
+            <img
+              src={personalInfo.profileImage}
+              alt={personalInfo.name}
+              className="w-full max-w-xs aspect-[4/5] object-cover rounded-lg border border-gray-200 dark:border-dark-border"
+            />
 
-            {/* Content */}
-            <motion.div className="space-y-6">
+            <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  {personalInfo.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{personalInfo.title}</h3>
+                <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
                   {personalInfo.bio}
                 </p>
               </div>
 
-              {/* Contact Info */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                  <MapPinIcon className="h-5 w-5 text-primary dark:text-secondary" />
-                  <span>{personalInfo.location}</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                  <EnvelopeIcon className="h-5 w-5 text-primary dark:text-secondary" />
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="hover:text-primary dark:hover:text-secondary transition-colors duration-300"
-                  >
-                    {personalInfo.email}
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                  <PhoneIcon className="h-5 w-5 text-primary dark:text-secondary" />
-                  <a
-                    href={`tel:${personalInfo.phone}`}
-                    className="hover:text-primary dark:hover:text-secondary transition-colors duration-300"
-                  >
-                    {personalInfo.phone}
-                  </a>
-                </div>
-              </div>
+              <dl className="grid grid-cols-3 gap-6 py-6 border-y border-gray-200 dark:border-dark-border">
+                {stats.map((s) => (
+                  <div key={s.label}>
+                    <dd className="text-3xl font-semibold text-primary dark:text-primary-light">{s.value}</dd>
+                    <dt className="mt-1 text-sm text-gray-600 dark:text-gray-400">{s.label}</dt>
+                  </div>
+                ))}
+              </dl>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 py-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary dark:text-secondary">1+</div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary dark:text-secondary">10+</div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">Projects Completed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary dark:text-secondary">100%</div>
-                  <div className="text-gray-600 dark:text-gray-400 text-sm">Client Satisfaction</div>
-                </div>
-              </div>
+              <ul className="space-y-3 text-sm">
+                {contact.map((item) => (
+                  <li key={item.text} className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                    <span className="text-primary dark:text-primary-light">{item.icon}</span>
+                    {item.href ? (
+                      <a href={item.href} className="hover:text-primary dark:hover:text-primary-light transition-colors">
+                        {item.text}
+                      </a>
+                    ) : (
+                      <span>{item.text}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
 
-              {/* Download Resume Button */}
-             <div className='flex justify-center items-center'>
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={handleDownloadResume}
-                  className="group px-8 py-4 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 justify-center "
-                >
-                  <DocumentArrowDownIcon className="h-5 w-5 " />
-                  Download Resume
-                  <motion.div
-                    animate={{ y: [0, 2, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    ↓
-                  </motion.div>
-                </motion.button>
-             </div>
-            </motion.div>
+              <button
+                onClick={handleDownloadResume}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                <DocumentArrowDownIcon className="h-5 w-5" />
+                Download resume
+              </button>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-};
+}
 
 export default About;

@@ -38,6 +38,17 @@ export const skills = {
 };
 
 export const projects = [
+    {
+    id: 1,
+    title: "RewaCiti",
+    description:
+      "A smart real estate platform for finding properties, student accommodation, and local housing guidance across Ile-Ife and Osun State. Features property listings, search/filter by location and price, and a user-friendly interface for both landlords and tenants.",
+    image: "/assets/Projectimages/image.png",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "SabiFlow API"],
+    liveUrl: "https://rewaciti.com",
+    githubUrl: "https://github.com/rewaciti/RewaCiti",
+    featured: true,
+  },
   {
     id: 1,
     title: "E-Commerce Website",

@@ -1,13 +1,13 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import { Sparkles } from "lucide-react";
 import { skills } from "../data/portfolio";
 
 
-interface skill{
-  name:string;
-  icon:string;
-  level:number;
-
+interface Skill {
+  name: string;
+  icon?: string;
+  level?: number;
 }
 // Variants (cleaned & centralized)
 const containerVariants: Variants = {
@@ -26,7 +26,7 @@ const cardVariants: Variants = {
 };
 
 // 🔹 Reusable Skill Card Component
-const SkillCard = ({ skill}: { skill: skill; index: number }) => (
+const SkillCard = ({ skill }: { skill: Skill }) => (
   <motion.div
     variants={cardVariants}
     whileHover={{
@@ -45,12 +45,12 @@ const SkillCard = ({ skill}: { skill: skill; index: number }) => (
     {/* Content */}
     <div className="relative z-10 text-center">
      <div className="text-4xl mb-4 group-hover:animate-bounce flex justify-center">
-      <img 
-        src={skill.icon} 
-        alt={skill.name} 
-        className="w-12 h-12 object-contain" 
-      />
-</div>
+      {skill.icon ? (
+        <img src={skill.icon} alt={skill.name} className="w-12 h-12 object-contain" />
+      ) : (
+        <Sparkles className="w-12 h-12 text-primary dark:text-secondary" aria-hidden="true" />
+      )}
+     </div>
       <h3 className="font-semibold text-gray-900 dark:text-white mb-3 
                      group-hover:text-primary dark:group-hover:text-secondary 
                      transition-colors duration-300">
@@ -97,8 +97,8 @@ const Skills: React.FC = () => {
               viewport={{ once: true }}
               className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"
             >
-              {skillList.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} index={index} />
+              {skillList.map((skill) => (
+                <SkillCard key={skill.name} skill={skill} />
               ))}
             </motion.div>
           </div>

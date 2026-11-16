@@ -5,7 +5,7 @@ export const personalInfo = {
   email: "arewatolulope5@gmail.com",
   phone: "+234 7018960275",
   location: "Obafemi Awolowo University, Ile-Ife,Osun State, Nigeria",
-  bio: "Passionate frontend developer with hands-on experience building 10+ real-world projects. I specialize in React, TypeScript, and modern CSS frameworks, creating beautiful and user-friendly web applications. Always eager to learn new technologies and solve complex problems.",
+  bio: "Passionate frontend developer with hands-on experience building 10+ real-world projects. I specialize in React, TypeScript, and modern CSS frameworks, creating beautiful and user-friendly web applications. I also use AI coding tools to explore solutions, troubleshoot issues, and streamline my workflow while reviewing and validating the code I use. Always eager to learn new technologies and solve complex problems.",
   resumeUrl: "/resume.pdf",
   profileImage: "assets/Heroimages/image.png",
   avatar: "/assets/Heroimages/at-high-resolution-logo.png"
@@ -34,6 +34,7 @@ export const skills = {
     { name: "Figma", icon: "/assets/skilllogo/figma.svg", level: 50 },
     { name: "C++", icon: "/assets/skilllogo/image 20.svg", level: 80 },
       { name: "CyberSecurity", icon: "/assets/skilllogo/cyberSecurity.jpg", level: 50 },
+    { name: "AI-assisted coding" },
   ],
 };
 

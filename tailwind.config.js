@@ -5,9 +5,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#149c6c',
+        primary: '#087F5B',
+        'primary-dark': '#066647',
+        'primary-light': '#6EE7B7',
         secondary: '#CBEA7B',
+        accent: '#087F5B',
         'dark-bg': '#25453a',
+        'dark-surface': '#1F3B31',
+        'dark-card': '#2D4B3F',
+        'dark-border': '#49665A',
         'light-bg': '#ffffff',
       },
       fontFamily: {

@@ -63,7 +63,7 @@ const SkillCard = ({ skill}: { skill: skill; index: number }) => (
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
+    <section id="skills" className="scroll-mt-20 py-20 bg-white dark:bg-dark-bg transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         
         {/* Header */}

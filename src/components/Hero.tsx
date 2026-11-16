@@ -24,7 +24,7 @@ function Hero() {
           className="max-w-6xl mx-auto grid lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-16 items-center"
         >
           <div>
-            <p className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+            <p className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 mb-6">
               <span className="w-2 h-2 rounded-full bg-accent" aria-hidden="true" />
               Open to full-time roles and freelance projects
             </p>
@@ -35,7 +35,7 @@ function Hero() {
             <p className="mt-4 text-xl sm:text-2xl text-primary dark:text-primary-light font-medium">
               Frontend Developer and UI Designer
             </p>
-            <p className="mt-6 max-w-xl text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p             className="mt-6 max-w-xl text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
               I design website interfaces and build them into fast, responsive web applications with React
               and Tailwind CSS.
             </p>
@@ -61,7 +61,7 @@ function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className={`p-3 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-dark-card transition-colors ${focus}`}
+                    className={`p-3 rounded-lg text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-dark-card transition-colors ${focus}`}
                   >
                     {s.icon}
                   </a>
@@ -71,13 +71,13 @@ function Hero() {
 
             <dl className="mt-12 pt-6 border-t border-gray-200 dark:border-dark-border grid sm:grid-cols-2 gap-6 text-sm">
               <div>
-                <dt className="text-gray-500 dark:text-gray-400">Currently</dt>
+                <dt className="text-gray-500 dark:text-gray-300">Currently</dt>
                 <dd className="mt-1 font-medium text-gray-900 dark:text-white">
                   Frontend Developer and Team Lead, RewaCiti
                 </dd>
               </div>
               <div>
-                <dt className="text-gray-500 dark:text-gray-400">Studying</dt>
+                <dt className="text-gray-500 dark:text-gray-300">Studying</dt>
                 <dd className="mt-1 font-medium text-gray-900 dark:text-white">
                   Computer Science and Electronics Engineering, Obafemi Awolowo University
                 </dd>

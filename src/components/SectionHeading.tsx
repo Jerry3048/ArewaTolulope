@@ -10,7 +10,7 @@ function SectionHeading({ title, description }: SectionHeadingProps) {
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-gray-600 dark:text-gray-400">{description}</p>
+        <p className="mt-4 text-gray-600 dark:text-gray-300">{description}</p>
       )}
     </header>
   );

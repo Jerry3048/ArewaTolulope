@@ -25,7 +25,7 @@ function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-dark-surface">
+    <section id="about" className="scroll-mt-20 py-20 bg-gray-50 dark:bg-dark-surface">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <SectionHeading title="About me" />
@@ -49,7 +49,7 @@ function About() {
                 {stats.map((s) => (
                   <div key={s.label}>
                     <dd className="text-3xl font-semibold text-primary dark:text-primary-light">{s.value}</dd>
-                    <dt className="mt-1 text-sm text-gray-600 dark:text-gray-400">{s.label}</dt>
+                    <dt className="mt-1 text-sm text-gray-600 dark:text-gray-300">{s.label}</dt>
                   </div>
                 ))}
               </dl>

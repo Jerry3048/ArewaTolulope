@@ -43,7 +43,7 @@ function ProjectCard({ project }: { project: Project }) {
             </span>
           )}
         </h3>
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{project.description}</p>
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{project.description}</p>
 
         <ul className="mt-4 flex flex-wrap gap-1.5">
           {project.technologies.map((tech) => (
@@ -89,7 +89,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 function Projects() {
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-dark-surface">
+    <section id="projects" className="scroll-mt-20 py-20 bg-gray-50 dark:bg-dark-surface">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <SectionHeading title="Projects" description="Selected work, from real products to personal builds." />

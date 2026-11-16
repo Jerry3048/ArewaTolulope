@@ -17,7 +17,7 @@ interface FormData {
 const empty: FormData = { name: '', email: '', phone: '', message: '' };
 
 const inputClass =
-  'w-full px-4 py-3 bg-white dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors text-sm';
+  'w-full px-4 py-3 bg-white dark:bg-dark-card border border-gray-300 dark:border-dark-border rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors text-sm';
 const labelClass = 'block text-sm font-medium text-gray-800 dark:text-gray-200 mb-2';
 const errorClass = 'text-red-600 dark:text-red-400 text-xs mt-1';
 
@@ -103,7 +103,7 @@ function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-dark-bg">
+    <section id="contact" className="scroll-mt-20 py-20 bg-white dark:bg-dark-bg">
       <Toaster />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
@@ -119,7 +119,7 @@ function Contact() {
                   <li key={item.label} className="flex items-start gap-4">
                     <span className="p-2.5 rounded-lg bg-primary/10 text-primary dark:text-primary-light">{item.icon}</span>
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-300">{item.label}</p>
                       {item.href ? (
                         <a href={item.href} className="text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary-light transition-colors break-all">
                           {item.value}
@@ -147,7 +147,7 @@ function Contact() {
                 ))}
               </div>
 
-              <p className="text-sm text-gray-600 dark:text-gray-400 border-l-2 border-accent pl-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 border-l-2 border-accent pl-4">
                 Currently available for freelance work.
               </p>
             </div>
@@ -155,7 +155,7 @@ function Contact() {
             {formId ? (
               <ContactForm formId={formId} />
             ) : (
-              <p role="status" className="text-sm text-gray-600 dark:text-gray-400">
+              <p role="status" className="text-sm text-gray-600 dark:text-gray-300">
                 The contact form is unavailable. Set VITE_API_KEY to your Formspree form ID to enable it.
               </p>
             )}

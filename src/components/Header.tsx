@@ -65,7 +65,7 @@ function Header() {
                   className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-colors ${focus} ${
                     active
                       ? 'text-primary dark:text-primary-light bg-primary/10'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {link.name}
@@ -77,7 +77,7 @@ function Header() {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-card transition-colors ${focus}`}
+              className={`p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-card transition-colors ${focus}`}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
